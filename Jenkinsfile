@@ -44,12 +44,6 @@ node {
                 DOCKER_IMAGE = docker.build(
                     DOCKER_IMAGE_NAME,
                     [
-                        [
-                            "SCM_BRANCH_NAME=${GIT_BRANCH_NAME}",
-                            "SCM_COMMIT_ID=${GIT_COMMIT_ID}",
-                            "SCM_REPO_URL=${GIT_REPOSITORY_URL}",
-                            "ARTIFACT_VERSION=${ARTIFACT_VERSION}"
-                        ].collect { "--build-arg ${it.toString()}" }.join(" "),
                         "-f Dockerfile",
                         "."
                     ].join(" ")
